@@ -1,0 +1,64 @@
+from sys import stdin
+
+def lcs(s, t) :
+	#Your code goes here
+    if len(s)==0 or len(t)==0:
+        return 0
+    lcs_mat=[]
+    for i in range(len(s)+1):
+        li=[]
+        for j in range(len(t)+1):
+            li.append(0)
+        lcs_mat.append(li)
+    
+    for i in range(len(s)-1,-1,-1):
+        for j in range(len(t)-1,-1,-1):
+            if s[i]==t[j]:
+                lcs_mat[i][j]=1+lcs_mat[i+1][j+1]
+            else:
+                lcs_mat[i][j]=max(lcs_mat[i+1][j],lcs_mat[i][j+1])
+            
+            
+    return lcs_mat[0][0]            
+                    
+            
+            
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+#main
+s = str(stdin.readline().rstrip())
+t = str(stdin.readline().rstrip())
+
+print(lcs(s, t))
