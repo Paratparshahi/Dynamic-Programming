@@ -1,0 +1,34 @@
+from sys import stdin
+
+def lis(arr): 
+    # Write your code here
+    mem = [0 for i in range(n)]
+    mem[0] = 1
+    
+    for i in range(1, n):
+        x = 1
+        k = False
+        for j in range(i-1, -1, -1):
+            if arr[i] > arr[j]:
+                x = max(x, mem[j])
+                k = True
+        
+        if k:
+            x += 1
+        mem[i] = x
+    
+    ans = max(mem)
+    return ans
+
+
+def takeInput():
+    #To take fast I/O
+    n=int(stdin.readline().strip())
+    if n==0:
+        return list(),0
+    arr=list(map(int,stdin.readline().strip().split( )))
+    return arr,n
+    
+
+arr,n=takeInput()
+print(lis(arr))
