@@ -1,0 +1,32 @@
+import math
+import sys
+def minStepsTo1(n,dp): 
+    if n<=3:
+        return n 
+    ans=sys.maxsize
+    root=int(math.sqrt(n))
+    for i in range(1,root+1): 
+        newcheck=n-(i*i) 
+        if dp[newcheck]==-1: 
+            small=minStepsTo1(n-(i*i),dp)
+            dp[newcheck]=small 
+            currans=1+small 
+        else :
+            currans=1+dp[newcheck] 
+        ans=min(ans,currans) 
+    return ans  
+
+
+            
+        
+        
+    
+    pass
+
+        
+
+    
+n = int(input())
+dp=[-1 for i in range(n+1)]
+ans = minStepsTo1(n,dp)
+print(ans)
