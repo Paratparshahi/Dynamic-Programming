@@ -1,0 +1,26 @@
+def printSubsequences_2(string,output):
+    if len(string) is 0:
+            print(output)
+            return
+    
+    printSubsequences_2(string[1:],output)
+    output=output+string[0]
+    printSubsequences_2(string[1:],output)
+
+
+            
+    
+    pass
+
+    
+def printSubsequences(string):
+    printSubsequences_2(string,"")
+    
+    
+    pass
+
+
+
+
+string=input().strip()
+printSubsequences(string)
