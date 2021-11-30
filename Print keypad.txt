@@ -1,0 +1,32 @@
+def getstring(s):
+    if s==2:
+        return 'abc' 
+    if s==3:
+        return 'def' 
+    if s==4:
+        return 'ghi' 
+    if s==5:
+        return 'jkl' 
+    if s==6:
+        return 'mno' 
+    if s==7:
+        return 'pqrs' 
+    if s==8:
+        return 'tuv' 
+    if s==9:
+        return 'wxyz'
+        
+def Printkeypad(n,output): 
+    
+    if n==0:
+        print(output) 
+        return  
+    smallnum=n//10 
+    remain=n%10 
+    options=getstring(remain) 
+    for c in options: 
+        new=c+output  
+        Printkeypad(smallnum,new)
+        
+n=int(input())   
+Printkeypad(n,'')
