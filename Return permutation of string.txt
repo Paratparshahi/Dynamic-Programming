@@ -1,0 +1,21 @@
+def permutations(string):
+    if len(string)==0 or len(string)==1:
+        return string
+    
+    output=[]
+    for i in range(len(string)): 
+       m = string[i] 
+   
+       remLst = string[:i] + string[i+1:] 
+  
+       for p in permutations(remLst): 
+           output.append(m +str(p)) 
+        
+    return output
+    
+
+
+string = input()
+ans = permutations(string)
+for ele in ans:
+    print(ele)
